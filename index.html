@@ -15,21 +15,28 @@
 }
 
 body{
-    background:#0a0a0f;
-    color:#fff;
+    background:#050816;
+    color:white;
     line-height:1.6;
 }
 
-/* HERO SECTION */
+/* HERO SECTION WITH VR BACKGROUND */
 .hero{
-    background: linear-gradient(135deg,#000814,#001d3d);
-    padding:100px 20px;
+    height:100vh;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(5,8,22,0.9)),
+    url('https://images.unsplash.com/photo-1620336655052-b57986f7a95d') center/cover no-repeat;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
+    padding:20px;
 }
 
 .hero h1{
     font-size:3rem;
-    color:#00d4ff;
+    color:#00f5ff;
+    text-shadow:0 0 15px #00f5ff;
 }
 
 .hero h2{
@@ -40,62 +47,105 @@ body{
 
 .hero p{
     margin-top:20px;
-    font-size:1.1rem;
-    color:#ccc;
+    max-width:700px;
+    color:#ddd;
 }
 
-.contact-info{
-    margin-top:15px;
+.contact{
+    margin-top:20px;
     font-size:1rem;
+    color:#00f5ff;
 }
 
 /* SECTION STYLE */
 section{
-    padding:70px 10%;
+    padding:80px 10%;
 }
 
 section h2{
     text-align:center;
-    margin-bottom:40px;
-    color:#00d4ff;
+    margin-bottom:50px;
+    color:#00f5ff;
     font-size:2rem;
+    text-transform:uppercase;
+    letter-spacing:2px;
 }
 
 /* CARD DESIGN */
 .card{
-    background:#111827;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
     padding:25px;
     border-radius:12px;
     margin-bottom:25px;
-    box-shadow:0 0 20px rgba(0,212,255,0.2);
-    transition:0.3s;
+    border:1px solid rgba(0,255,255,0.2);
+    box-shadow:0 0 20px rgba(0,255,255,0.1);
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 30px rgba(0,212,255,0.4);
+    box-shadow:0 0 30px rgba(0,255,255,0.3);
 }
 
 ul{
     padding-left:20px;
 }
 
-.skills-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+/* PROJECTS */
+.projects-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
 }
 
+.project-card{
+    width:320px;
+    padding:20px;
+    border-radius:12px;
+    background: rgba(0,0,0,0.7);
+    border:1px solid rgba(0,255,255,0.2);
+    box-shadow:0 0 20px rgba(0,255,255,0.15);
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 30px rgba(0,255,255,0.4);
+}
+
+.project-card h3{
+    color:#00f5ff;
+    margin-bottom:10px;
+}
+
+.open-btn{
+    margin-top:15px;
+    padding:8px 15px;
+    background:#00f5ff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.project-details{
+    display:none;
+    margin-top:15px;
+}
+
+.project-details img{
+    width:100%;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+/* FOOTER */
 footer{
     text-align:center;
     padding:30px;
-    background:#000814;
+    background:#02040f;
     color:#777;
     font-size:0.9rem;
-}
-
-.highlight{
-    color:#00d4ff;
 }
 
 </style>
@@ -104,135 +154,115 @@ footer{
 <body>
 
 <!-- HERO -->
-<section class="hero">
+<div class="hero">
     <h1>BATTULA VENKATA SATYANARAYANA</h1>
     <h2>UNITY XR DEVELOPER</h2>
-    <p>3+ Years Experience in VR Training Simulations & Defense Projects</p>
-    <div class="contact-info">
+    <p>3+ Years of Experience in VR Defense Simulations, Motion Platform Integration & Military Training Systems</p>
+    <div class="contact">
         📧 bvssatya55@gmail.com | 📞 +91-9603738816 <br>
-        📍 Hyderabad, India
+        Hyderabad, India
     </div>
-</section>
+</div>
 
 <!-- CAREER OBJECTIVE -->
 <section>
-    <h2>Career Objective</h2>
-    <div class="card">
-        <p>
-        To work in a challenging organization that provides opportunities to learn, innovate, 
-        and contribute to high-quality XR and simulation projects while continuously upgrading 
-        my technical and leadership skills in competitive environments.
-        </p>
-    </div>
+<h2>Career Objective</h2>
+<div class="card">
+To work in challenging environments that provide opportunities to innovate in XR and Simulation technologies, 
+contributing to high-quality training systems while enhancing my technical and leadership skills.
+</div>
 </section>
 
-<!-- PROFESSIONAL EXPERIENCE -->
+<!-- PROJECTS SECTION -->
 <section>
-<h2>Professional Experience</h2>
+<h2>Defense & XR Projects</h2>
 
-<div class="card">
-<h3 class="highlight">Edgeforce Solutions Pvt. Ltd – XR Developer</h3>
-<p><strong>October 2024 – Present | Hyderabad</strong></p>
+<div class="projects-container">
 
-<h4>1️⃣ INSAS Gun Simulation (Indian Army)</h4>
+<!-- INSAS -->
+<div class="project-card">
+<h3>INSAS Gun VR Simulation</h3>
+<p>Indian Army Rifle Training System</p>
+<button class="open-btn" onclick="toggleProject('p1')">Open Project</button>
+
+<div class="project-details" id="p1">
 <ul>
-<li>Developed VR rifle training with free-hand interaction (no controllers).</li>
-<li>Full dismantling & assembling system with realistic animations.</li>
-<li>Voice-over guidance & performance evaluation scoring.</li>
-<li>Delivered project & trained Army instructors.</li>
+<li>Free-hand VR interaction (No Controllers)</li>
+<li>Dismantling & Assembling with realistic animations</li>
+<li>Voice-over guidance & evaluation scoring</li>
 </ul>
-
-<h4>2️⃣ Truck Maintenance Simulator – Project Lead (Team: 5)</h4>
-<ul>
-<li>VR simulation on Meta Quest 3.</li>
-<li>Designed fuel, air intake & gearbox flow systems.</li>
-<li>Engine oil, radiator, filter maintenance modules.</li>
-<li>Delivered to Indian Army & conducted training sessions.</li>
-</ul>
-
-<h4>3️⃣ Driving Simulator with Motion Platform – Project Lead (Team: 7)</h4>
-<ul>
-<li>3 VR driving setups (Gypsy + 2 Trucks).</li>
-<li>Integrated motion platforms, steering, pedals & gearbox hardware.</li>
-<li>Multi-weather, traffic AI & desert/off-road terrains.</li>
-<li>Trained 85 soldiers at Assam border battalion.</li>
-</ul>
-
+<img src="https://images.unsplash.com/photo-1581090700227-1e8b1d79f1c4" alt="VR Gun Training">
+</div>
 </div>
 
-<div class="card">
-<h3 class="highlight">Yeppar Smart Solutions – Unity Developer</h3>
-<p><strong>Dec 2022 – Sept 2024</strong></p>
+<!-- Truck -->
+<div class="project-card">
+<h3>Truck Maintenance Simulator</h3>
+<p>Meta Quest 3 Based Army Training</p>
+<button class="open-btn" onclick="toggleProject('p2')">Open Project</button>
 
+<div class="project-details" id="p2">
 <ul>
-<li>Indian Railways VR Training (Oculus Quest 2)</li>
-<li>CIPLA & ALBA Technician VR Simulations</li>
-<li>Amazon & Power Plant VR Modules</li>
-<li>E-Learning Projects (Math & Science)</li>
-<li>Conducted demos at Toyota, Ashok Leyland, TVS, BHEL & Amazon</li>
+<li>Fuel, gearbox & engine simulation flow</li>
+<li>Oil change, radiator & filter modules</li>
+<li>Project Lead – Team of 5</li>
 </ul>
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Truck Simulator">
+</div>
 </div>
 
+<!-- Driving -->
+<div class="project-card">
+<h3>Driving Simulator + Motion Platform</h3>
+<p>Full Hardware Integrated VR System</p>
+<button class="open-btn" onclick="toggleProject('p3')">Open Project</button>
+
+<div class="project-details" id="p3">
+<ul>
+<li>Motion platform + steering + pedals</li>
+<li>Traffic AI & Multi-weather systems</li>
+<li>Trained 85 Soldiers in Assam</li>
+</ul>
+<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a" alt="Driving Simulator">
+</div>
+</div>
+
+</div>
 </section>
 
 <!-- TECHNICAL SKILLS -->
 <section>
 <h2>Technical Skills</h2>
-
-<div class="skills-grid">
-
 <div class="card">
-<h4>Programming</h4>
-<p>C#, Unity3D, Visual Studio Code</p>
-</div>
-
-<div class="card">
-<h4>XR SDKs</h4>
-<p>OpenXR, Oculus Integration, SteamVR, ARCore</p>
-</div>
-
-<div class="card">
-<h4>Platforms</h4>
-<p>Windows, Android, Meta Quest</p>
-</div>
-
-<div class="card">
-<h4>Specialization</h4>
-<p>Free-hand Interaction, Hand Tracking, Motion Platform Integration, VR Optimization</p>
-</div>
-
+C#, Unity3D, OpenXR, Oculus Integration, SteamVR, ARCore <br>
+Meta Quest Deployment & Optimization <br>
+Motion Platform Integration & Hardware Sync
 </div>
 </section>
 
 <!-- EDUCATION -->
 <section>
 <h2>Education</h2>
-
 <div class="card">
-<p><strong>ITI – Refrigeration & Air Conditioning</strong> (84%)</p>
-<p>Sri Raghavendra Pvt ITI (2015 – 2017)</p>
-</div>
-
-<div class="card">
-<p><strong>SSC</strong> – 75% (2015)</p>
-</div>
-
-</section>
-
-<!-- PERSONAL -->
-<section>
-<h2>Personal Details</h2>
-<div class="card">
-<p><strong>Languages:</strong> English, Hindi, Telugu</p>
-<p><strong>Nationality:</strong> Indian</p>
-<p><strong>Marital Status:</strong> Unmarried</p>
-<p><strong>Native Place:</strong> Velpuru, Andhra Pradesh</p>
+ITI – Refrigeration & Air Conditioning (84%) <br>
+SSC – 75%
 </div>
 </section>
 
 <footer>
-© 2026 Battula Venkata Satyanarayana | Unity XR Developer Portfolio
+© 2026 Battula Venkata Satyanarayana | Unity XR Defense Developer
 </footer>
+
+<script>
+function toggleProject(id){
+    var element = document.getElementById(id);
+    if(element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+    }
+}
+</script>
 
 </body>
 </html>
