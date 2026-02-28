@@ -1,20 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Satya | Unity Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            text-align: center;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #00cfff;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #00cfff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #111, #000);
+        }
+
+        .hero h3 {
+            margin-top: 15px;
+            color: #aaa;
+            font-weight: normal;
+        }
+
+        /* Projects */
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: #111;
+            padding: 30px;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 207, 255, 0.3);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 207, 255, 0.6);
+        }
+
+        .project-card h3 {
+            color: #00cfff;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #00cfff;
+            font-weight: bold;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact */
+        .contact p {
+            margin-top: 10px;
+        }
+
+        footer {
+            padding: 20px;
+            background: #111;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+    </style>
 </head>
+
 <body>
-    <h1>Satya BVS</h1>
-    <h2>Unity XR & Simulation Developer</h2>
-    <p>3+ Years Experience in Unity, VR & Training Systems</p>
 
-    <h2>Projects</h2>
-    <ul>
-        <li>Military Driving Simulator</li>
-        <li>VR Assembly Training</li>
-    </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Unity Developer | 3+ Years Experience</h1>
+        <h3>Creating immersive games and interactive experiences.</h3>
+    </section>
 
-    <h2>Contact</h2>
-    <p>Email: bvssatya55@gmail.com</p>
+    <!-- About Section -->
+    <section>
+        <h2>About Me</h2>
+        <p>
+            Unity XR & Simulation Developer with 3+ years of experience building 2D and 3D games.
+            Skilled in game mechanics, UI systems, physics, VR development, and mobile optimization.
+            Experienced in building military simulators and VR-based training systems.
+        </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section>
+        <h2>Projects</h2>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+                <h3>Military Driving Simulator</h3>
+                <p>Advanced vehicle physics-based military driving simulation system.</p>
+                <a href="#">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>VR Assembly Training</h3>
+                <p>Interactive VR training module for industrial assembly processes.</p>
+                <a href="#">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Mobile Action Game</h3>
+                <p>Optimized 3D action game built for Android devices.</p>
+                <a href="#">View Project</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contact</h2>
+        <p>Email: bvssatya55@gmail.com</p>
+    </section>
+
+    <footer>
+        © 2026 Satya BVS | Unity XR Developer
+    </footer>
+
 </body>
 </html>
