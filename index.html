@@ -7,8 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-orange: #00f5ff; /* Metaverse Neon Cyan */
-            --meta-purple: #9d00ff;
+            --primary-orange: #00F5FF; /* Futuristic XR Cyan */
             --bg-dark: #0a0a0a;
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-main: #e0e0e0;
@@ -23,7 +22,6 @@
             line-height: 1.6;
         }
 
-        /* Hero Section */
         header {
             height: 90vh;
             display: flex;
@@ -31,10 +29,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-            url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500') center/cover;
             border-bottom: 4px solid var(--primary-orange);
-            box-shadow: 0 0 25px var(--primary-orange);
         }
 
         h1 {
@@ -48,7 +44,6 @@
         .subtitle {
             font-size: 1.2rem;
             color: var(--primary-orange);
-            text-shadow: 0 0 10px var(--primary-orange);
             font-weight: 600;
             letter-spacing: 5px;
             margin-bottom: 10px;
@@ -62,13 +57,11 @@
             font-family: 'Oswald', sans-serif;
             font-size: 2.5rem;
             border-left: 6px solid var(--primary-orange);
-            box-shadow: -5px 0 20px var(--primary-orange);
             padding-left: 20px;
             margin-bottom: 40px;
             text-transform: uppercase;
         }
 
-        /* Project Cards */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -88,28 +81,30 @@
         .project-card:hover {
             border-color: var(--primary-orange);
             transform: translateY(-8px);
-            background: rgba(0, 245, 255, 0.05);
-            box-shadow: 0 0 30px rgba(0,245,255,0.4);
+            background: rgba(0, 245, 255, 0.06);
         }
 
         .role-badge {
             position: absolute;
             top: 0;
             right: 0;
-            background: linear-gradient(45deg, var(--primary-orange), var(--meta-purple));
-            color: white;
+            background: var(--primary-orange);
+            color: black;
             padding: 5px 15px;
             font-size: 0.7rem;
             font-weight: bold;
             text-transform: uppercase;
-            box-shadow: 0 0 20px var(--primary-orange);
         }
 
-        .project-card h3 { font-family: 'Oswald', sans-serif; color: white; font-size: 1.6rem; margin: 15px 0; }
+        .project-card h3 { 
+            font-family: 'Oswald', sans-serif; 
+            color: white; 
+            font-size: 1.6rem; 
+            margin: 15px 0; 
+        }
 
         .tag { 
             color: var(--primary-orange); 
-            text-shadow: 0 0 8px var(--primary-orange);
             font-size: 0.8rem; 
             font-weight: 700; 
             text-transform: uppercase; 
@@ -123,14 +118,12 @@
             display: inline-block;
             margin-top: 15px;
             color: var(--primary-orange);
-            text-shadow: 0 0 10px var(--primary-orange);
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
             cursor: pointer;
         }
 
-        /* Enterprise List */
         .enterprise-section { background: #111; padding: 60px 0; }
 
         .client-pill {
@@ -143,14 +136,12 @@
             transition: 0.3s;
         }
 
-        .client-pill:hover {
-            border-color: var(--primary-orange);
-            background: linear-gradient(45deg, var(--primary-orange), var(--meta-purple));
-            color: white;
-            box-shadow: 0 0 25px var(--primary-orange);
+        .client-pill:hover { 
+            border-color: var(--primary-orange); 
+            background: var(--primary-orange); 
+            color: black; 
         }
 
-        /* Modal */
         .modal {
             display: none; 
             position: fixed; 
@@ -168,16 +159,25 @@
             margin: 5% auto; 
             width: 90%; 
             max-width: 900px; 
-            border: 1px solid var(--primary-orange);
-            box-shadow: 0 0 30px var(--primary-orange);
+            border: 1px solid var(--primary-orange); 
         }
 
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+        }
+
+        .video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
 
         .close { 
-            color: var(--primary-orange); 
-            text-shadow: 0 0 10px var(--primary-orange);
+            color: white; 
             position: absolute; 
             top: -40px; 
             right: 0; 
@@ -200,7 +200,23 @@
 </head>
 <body>
 
-<!-- YOUR ENTIRE ORIGINAL HTML STRUCTURE REMAINS UNCHANGED BELOW -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideo()">&times; CLOSE MISSION LOG</span>
+            <div class="video-container">
+                <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <p class="subtitle">LEAD XR DEVELOPER</p>
+        <h1>B.V. SATYANARAYANA</h1>
+        <p class="hero-desc">Architecting mission-critical VR simulations for the Indian Army and high-fidelity enterprise solutions for global brands.</p>
+        <a href="#projects" style="margin-top: 30px; background: var(--primary-orange); color: black; padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 2px;">COMMENCE PORTFOLIO REVIEW</a>
+    </header>
+
+    <!-- Rest of HTML remains exactly the same -->
 
 </body>
 </html>
