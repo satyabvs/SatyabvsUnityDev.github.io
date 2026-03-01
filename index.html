@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.V. Satyanarayana | Unity XR Developer</title>
+    <title>B.V. Satyanarayana | Lead XR Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-orange: #ff4d00; /* Tactical Accent */
+            --primary-orange: #ff4d00;
             --bg-dark: #0a0a0a;
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-main: #e0e0e0;
+            --army-green: #4b5320;
         }
 
         body {
@@ -19,25 +20,23 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* Hero Section */
         header {
-            height: 80vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Replace with your actual hero image path */
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&q=80&w=1000') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500') center/cover;
             border-bottom: 4px solid var(--primary-orange);
         }
 
         h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 8vw, 5rem);
             margin: 0;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -47,257 +46,231 @@
             font-size: 1.2rem;
             color: var(--primary-orange);
             font-weight: 600;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
         }
 
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .hero-desc { max-width: 700px; font-size: 1.1rem; color: #bbb; margin-top: 15px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+
+        h2.section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            border-left: 6px solid var(--primary-orange);
+            padding-left: 20px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
         }
 
-        /* Project Grid */
+        /* Project Cards */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
         .project-card {
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 25px;
+            padding: 30px;
             border-radius: 4px;
             transition: 0.3s;
-            display: flex;
-            flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
 
         .project-card:hover {
             border-color: var(--primary-orange);
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-8px);
+            background: rgba(255, 77, 0, 0.03);
         }
 
-        .project-card h3 {
-            font-family: 'Oswald', sans-serif;
-            color: white;
-            margin: 15px 0 10px 0;
-            font-size: 1.5rem;
-        }
-
-        .tag {
-            background: rgba(255, 77, 0, 0.2);
-            color: var(--primary-orange);
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            border-radius: 2px;
-            align-self: flex-start;
-            text-transform: uppercase;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-
-        /* Video Link Style */
-        .video-btn {
-            margin-top: auto;
-            color: var(--primary-orange);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .video-btn:hover {
-            letter-spacing: 2px;
-            color: white;
-        }
-
-        /* Video Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            position: relative;
-            margin: 5% auto;
-            width: 90%;
-            max-width: 1000px;
-            border: 1px solid var(--primary-orange);
-            box-shadow: 0 0 30px rgba(255, 77, 0, 0.3);
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-        }
-
-        .video-wrapper iframe {
+        .role-badge {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: -40px;
             right: 0;
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* Tech Stack Section */
-        .tech-section {
-            background: #050505;
-            padding: 80px 0;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
-
-        .contact-btn {
-            display: inline-block;
             background: var(--primary-orange);
             color: white;
-            padding: 15px 40px;
+            padding: 5px 15px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .project-card h3 { font-family: 'Oswald', sans-serif; color: white; font-size: 1.6rem; margin: 15px 0; }
+        .tag { color: var(--primary-orange); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        
+        ul { padding-left: 18px; color: #aaa; font-size: 0.95rem; }
+        li { margin-bottom: 8px; }
+
+        .video-trigger {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-orange);
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
-            border-radius: 2px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Enterprise List */
+        .enterprise-section { background: #111; padding: 60px 0; }
+        .client-pill {
+            display: inline-block;
+            border: 1px solid #333;
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 50px;
+            font-size: 0.85rem;
             transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
+        .client-pill:hover { border-color: var(--primary-orange); background: var(--primary-orange); color: white; }
 
-        .contact-btn:hover {
-            background: #ff6a2a;
-            box-shadow: 0 0 20px rgba(255, 77, 0, 0.4);
+        /* Modal */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); backdrop-filter: blur(8px);
         }
+        .modal-content { position: relative; margin: 5% auto; width: 90%; max-width: 900px; border: 1px solid var(--primary-orange); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .close { color: white; position: absolute; top: -40px; right: 0; font-size: 25px; cursor: pointer; }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .subtitle { font-size: 1rem; }
-        }
+        footer { text-align: center; padding: 40px; border-top: 1px solid #222; font-size: 0.9rem; color: #666; }
+
+        @media (max-width: 768px) { .project-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <div id="insasModal" class="modal">
+    <div id="videoModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeVideo()">&times; CLOSE</span>
-            <div class="video-wrapper">
-                <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <span class="close" onclick="closeVideo()">&times; CLOSE MISSION LOG</span>
+            <div class="video-container">
+                <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
     <header>
-        <p class="subtitle">XR DEVELOPER</p>
+        <p class="subtitle">LEAD XR DEVELOPER</p>
         <h1>B.V. SATYANARAYANA</h1>
-        <p>Specializing in Military-Grade VR Simulations & Hardware Integration</p>
-        <a href="#projects" class="contact-btn">VIEW MISSION PORTFOLIO</a>
+        <p class="hero-desc">Architecting mission-critical VR simulations for the Indian Army and high-fidelity enterprise solutions for global brands.</p>
+        <a href="#projects" style="margin-top: 30px; background: var(--primary-orange); color: white; padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 2px;">COMMENCE PORTFOLIO REVIEW</a>
     </header>
 
     <div class="container" id="projects">
-        <h2 style="font-family: 'Oswald'; font-size: 2.5rem; border-left: 5px solid var(--primary-orange); padding-left: 15px; margin-bottom: 40px;">FEATURED PROJECTS</h2>
+        <h2 class="section-title">Strategic Defense Projects</h2>
         
         <div class="project-grid">
             <div class="project-card">
-                <span class="tag">INDIAN ARMY</span>
+                <span class="tag">Oct 2024 — Present</span>
                 <h3>INSAS Rifle Simulation</h3>
-                <p>Advanced VR training for rifle assembly/disassembly. Features controller-free hand tracking and real-time performance evaluation.</p>
+                <p>Advanced VR assembly/disassembly training for the Indian Army using controller-free interaction.</p>
                 <ul>
-                    <li>Meta Quest 3 / Hand Tracking</li>
-                    <li>Custom Animation State Machines</li>
+                    <li>Designed full dismantling/assembling flow with realistic physics.</li>
+                    <li>Developed evaluation system for scoring sequence accuracy.</li>
+                    <li>Integrated voice-over instructions and intuitive UX.</li>
+                    <li>Directly trained Army instructors on battalion-level deployment.</li>
                 </ul>
-                <div class="video-btn" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')"> 
-                    ▶ WATCH SIMULATION DEMO 
-                </div>
+                <div class="video-trigger" onclick="openVideo('YOUTUBE_ID_1')">▶ WATCH SIMULATION DEMO</div>
             </div>
 
             <div class="project-card">
-                <span class="tag">HARDWARE INTEGRATION</span>
-                <h3>3-DOF Driving Simulator</h3>
-                <p>Synchronized VR environments with physical motion platforms and steering hardware for heavy vehicle training.</p>
+                <div class="role-badge">PROJECT LEAD</div>
+                <span class="tag">Indian Army</span>
+                <h3>Truck Maintenance Simulator</h3>
+                <p>VR-based technical simulator for Meta Quest 3, managing a 5-member development team.</p>
                 <ul>
-                    <li>Multi-weather & Terrain Physics</li>
-                    <li>Hardware-to-Unity Sync Logic</li>
+                    <li>Simulated core systems: Fuel supply, air intake, and gearboxes.</li>
+                    <li>Built modules for radiator, engine oil, and air filter maintenance.</li>
+                    <li>Oversaw full system design and military data collection.</li>
+                    <li>Delivered and conducted hardware training for battalion instructors.</li>
                 </ul>
-                <div class="video-btn">PROJECT DETAILS (LOCKED)</div>
+                <div class="video-trigger" onclick="openVideo('YOUTUBE_ID_2')">▶ VIEW FLOW ANIMATIONS</div>
             </div>
 
             <div class="project-card">
-                <span class="tag">ENTERPRISE</span>
-                <h3>Amazon Logistics VR</h3>
-                <p>Training simulations designed for industrial technicians to optimize workflow and safety.</p>
+                <div class="role-badge">PROJECT LEAD</div>
+                <span class="tag">Indian Army Deployment</span>
+                <h3>Driving Simulator & Hardware</h3>
+                <p>Leading 7 members to build 3 integrated VR simulators (Gypsy & Truck) with full motion-platform sync.</p>
                 <ul>
-                    <li>High-fidelity URP Assets</li>
-                    <li>Interactive Training Modules</li>
+                    <li>Integrated motion platforms, pedals, and gearboxes with Unity.</li>
+                    <li>Developed multi-weather AI traffic for Desert, Off-road, and City terrains.</li>
+                    <li><b>Impact:</b> Trained 85+ soldiers at the Assam border on-site.</li>
                 </ul>
-                <div class="video-btn">CONFIDENTIAL CASE STUDY</div>
+                <div class="video-trigger" onclick="openVideo('YOUTUBE_ID_3')">▶ VIEW HARDWARE SYNC</div>
             </div>
         </div>
     </div>
 
-    <section class="tech-section">
+    <div class="enterprise-section">
         <div class="container">
-            <h2 style="font-family: 'Oswald'; margin-bottom: 30px;">TECHNICAL ARSENAL</h2>
-            <p style="font-size: 1.2rem; color: #fff; letter-spacing: 1px;">
-                C# | Unity3D | OpenXR | Oculus SDK | AR Core | SteamVR
-            </p>
-            <hr style="width: 50px; border: 1px solid var(--primary-orange); margin: 30px auto;">
-            <p>Email: <strong>bvssatya55@gmail.com</strong> | Phone: <strong>+91 9603738816</strong></p>
+            <h2 class="section-title">Enterprise VR Portfolio</h2>
+            <p style="margin-bottom: 30px; color: #888;">During tenure at Yeppar Smart Solutions (Dec 2022 - Sep 2024)</p>
+            
+            <div class="project-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="project-card" style="padding: 20px;">
+                    <span class="tag">Logistics</span>
+                    <h3>Amazon VR Training</h3>
+                    <p>Technician-focused simulation for warehouse optimization on Oculus Quest 2.</p>
+                </div>
+                <div class="project-card" style="padding: 20px;">
+                    <span class="tag">Public Sector</span>
+                    <h3>Indian Railways</h3>
+                    <p>High-stakes VR safety and training simulation for railway operations.</p>
+                </div>
+                <div class="project-card" style="padding: 20px;">
+                    <span class="tag">Pharma & Energy</span>
+                    <h3>CIPLA & Alba Simulation</h3>
+                    <p>Multi-module technician training for sterile environments and power plants.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; text-align: center;">
+                <p style="color: var(--primary-orange); font-weight: bold; margin-bottom: 20px;">PHYSICAL DEMONSTRATIONS CONDUCTED AT:</p>
+                <div class="client-pill">TOYOTA</div>
+                <div class="client-pill">ASHOK LEYLAND</div>
+                <div class="client-pill">TVS</div>
+                <div class="client-pill">AMAZON</div>
+                <div class="client-pill">BHEL</div>
+            </div>
         </div>
-    </section>
+    </div>
+
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title" style="border: none; padding: 0; text-align: center;">Technical Arsenal</h2>
+        <p style="font-size: 1.3rem; letter-spacing: 2px;">C# | UNITY3D | META QUEST 3 | OPENXR | HARDWARE SYNC</p>
+        <div style="margin-top: 40px; background: var(--card-bg); padding: 30px; border: 1px dashed var(--primary-orange);">
+            <p>Email: <b>bvssatya55@gmail.com</b> | Phone: <b>+91 9603738816</b></p>
+            <p>Hyderabad, India | Available for Strategic XR Roles</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 B.V. Satyanarayana | Designed for High-Performance XR
+    </footer>
 
     <script>
-        const modal = document.getElementById("insasModal");
+        const modal = document.getElementById("videoModal");
         const player = document.getElementById("videoPlayer");
 
-        function openVideo(videoUrl) {
+        function openVideo(id) {
             modal.style.display = "block";
-            // Adding autoplay to the URL
-            player.src = videoUrl + "?autoplay=1";
-            document.body.style.overflow = "hidden"; // Prevent background scroll
+            // Replace with your actual URLs. If using files: player.src = 'videos/' + id + '.mp4';
+            player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+            document.body.style.overflow = "hidden";
         }
 
         function closeVideo() {
             modal.style.display = "none";
-            player.src = ""; // Stop the video
+            player.src = "";
             document.body.style.overflow = "auto";
         }
 
-        // Close modal if user clicks outside the video
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeVideo();
-            }
-        }
+        window.onclick = function(e) { if (e.target == modal) closeVideo(); }
     </script>
-
 </body>
 </html>
