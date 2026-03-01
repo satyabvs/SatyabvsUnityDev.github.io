@@ -1,274 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Battula Venkata Satyanarayana | XR Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.V. Satyanarayana | Unity XR Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #ff4d00; /* Tactical Accent */
+            --bg-dark: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #e0e0e0;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
 
-<style>
+        /* Hero Section */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('your-hero-image.jpg') center/cover;
+            border-bottom: 4px solid var(--primary-orange);
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-body{
-background:#0a0f1f;
-color:white;
-overflow-x:hidden;
-}
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-orange);
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
 
-/* NAVBAR */
-nav{
-position:fixed;
-width:100%;
-padding:20px 10%;
-display:flex;
-justify-content:space-between;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-weight:500;
-transition:0.3s;
-}
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
 
-nav a:hover{
-color:#00f5ff;
-}
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
 
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background: radial-gradient(circle at center, #101833, #050816);
-padding:20px;
-}
+        .project-card:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+        }
 
-.hero h1{
-font-size:3.5rem;
-background:linear-gradient(90deg,#00f5ff,#9d00ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:glow 2s infinite alternate;
-}
+        .project-card h3 {
+            font-family: 'Oswald', sans-serif;
+            color: white;
+            margin-top: 0;
+        }
 
-@keyframes glow{
-from{ text-shadow:0 0 10px #00f5ff;}
-to{ text-shadow:0 0 25px #9d00ff;}
-}
+        .tag {
+            background: rgba(255, 77, 0, 0.2);
+            color: var(--primary-orange);
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            margin-right: 5px;
+        }
 
-.typing{
-margin-top:15px;
-font-size:1.5rem;
-color:#ccc;
-height:40px;
-}
+        /* Tech Stack Section */
+        .tech-section {
+            background: #111;
+            padding: 60px 0;
+            text-align: center;
+        }
 
-.hero p{
-margin-top:20px;
-max-width:700px;
-color:#aaa;
-}
-
-.hero button{
-margin-top:25px;
-padding:12px 25px;
-border:none;
-border-radius:30px;
-background:linear-gradient(90deg,#00f5ff,#9d00ff);
-color:white;
-font-weight:600;
-cursor:pointer;
-transition:0.3s;
-}
-
-.hero button:hover{
-transform:scale(1.1);
-}
-
-/* SECTION */
-section{
-padding:100px 10%;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:60px;
-font-size:2rem;
-color:#00f5ff;
-}
-
-/* GLASS CARD */
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:15px;
-transition:0.4s;
-opacity:0;
-transform:translateY(50px);
-}
-
-.card.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(0,245,255,0.3);
-}
-
-/* PROJECT GRID */
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.project h3{
-color:#00f5ff;
-margin-bottom:10px;
-}
-
-footer{
-text-align:center;
-padding:40px;
-background:#050816;
-color:#777;
-}
-
-</style>
+        .contact-btn {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            border-radius: 2px;
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-<div><b>BVS</b></div>
-<div>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
+    <header>
+        <p class="subtitle">XR DEVELOPER</p>
+        <h1>B.V. SATYANARAYANA</h1>
+        <p>Specializing in Military-Grade VR Simulations & Hardware Integration</p>
+        <a href="#projects" class="contact-btn">VIEW MISSION PORTFOLIO</a>
+    </header>
 
-<div class="hero">
-<h1>BATTULA VENKATA SATYANARAYANA</h1>
-<div class="typing" id="typing"></div>
-<p>3+ Years Experience in VR Defense Simulations, Motion Platform Integration & Military Training Systems</p>
-<button onclick="scrollToSection()">View My Work</button>
-</div>
+    <div class="container" id="projects">
+        <h2 style="font-family: 'Oswald'; font-size: 2.5rem; border-left: 5px solid var(--primary-orange); padding-left: 15px;">FEATURED PROJECTS</h2>
+        
+        <div class="project-grid">
+            <div class="project-card">
+                <span class="tag">INDIAN ARMY</span>
+                <h3>INSAS Rifle Simulation</h3>
+                <p>Advanced VR training for rifle assembly/disassembly. Features controller-free hand tracking and real-time performance evaluation.</p>
+                <ul>
+                    <li>Meta Quest 3 / Hand Tracking</li>
+                    <li>Custom Animation State Machines</li>
+                </ul>
+            </div>
 
-<section id="about">
-<h2 class="section-title">About Me</h2>
-<div class="card">
-XR Developer specializing in Unity3D, OpenXR & Meta Quest systems. 
-Experienced in building defense-grade VR simulations and hardware-integrated motion systems.
-</div>
-</section>
+            <div class="project-card">
+                <span class="tag">HARDWARE INTEGRATION</span>
+                <h3>3-DOF Driving Simulator</h3>
+                <p>Synchronized VR environments with physical motion platforms and steering hardware for heavy vehicle training.</p>
+                <ul>
+                    <li>Multi-weather & Terrain Physics</li>
+                    <li>Hardware-to-Unity Sync Logic</li>
+                </ul>
+            </div>
 
-<section id="projects">
-<h2 class="section-title">Defense & XR Projects</h2>
-<div class="projects">
+            <div class="project-card">
+                <span class="tag">ENTERPRISE</span>
+                <h3>Amazon Logistics VR</h3>
+                <p>Training simulations designed for industrial technicians to optimize workflow and safety.</p>
+                <ul>
+                    <li>High-fidelity URP Assets</li>
+                    <li>Interactive Training Modules</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<div class="card project">
-<h3>INSAS Gun VR Simulation</h3>
-<p>Free-hand interaction rifle training with evaluation scoring system.</p>
-</div>
-
-<div class="card project">
-<h3>Truck Maintenance Simulator</h3>
-<p>Meta Quest 3 Army training system with full mechanical simulation modules.</p>
-</div>
-
-<div class="card project">
-<h3>Driving Simulator + Motion Platform</h3>
-<p>Hardware integrated VR driving system used to train 85 soldiers.</p>
-</div>
-
-</div>
-</section>
-
-<section id="skills">
-<h2 class="section-title">Technical Skills</h2>
-<div class="card">
-C#, Unity3D, OpenXR, Oculus Integration, SteamVR, ARCore<br><br>
-Meta Quest Optimization & Deployment<br><br>
-Motion Platform & Hardware Sync Systems
-</div>
-</section>
-
-<section id="contact">
-<h2 class="section-title">Contact</h2>
-<div class="card">
-📧 bvssatya55@gmail.com<br>
-📞 +91-9603738816<br>
-Hyderabad, India
-</div>
-</section>
-
-<footer>
-© 2026 Battula Venkata Satyanarayana | XR Defense Developer
-</footer>
-
-<script>
-
-/* Typing Animation */
-const text = ["Unity XR Developer","Defense Simulation Specialist","Motion Platform Integrator"];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
-
-(function type(){
-if(count === text.length){ count = 0; }
-currentText = text[count];
-letter = currentText.slice(0, ++index);
-
-document.getElementById("typing").textContent = letter;
-
-if(letter.length === currentText.length){
-count++;
-index = 0;
-setTimeout(type,1000);
-}else{
-setTimeout(type,100);
-}
-})();
-
-/* Scroll Reveal */
-const cards = document.querySelectorAll(".card");
-window.addEventListener("scroll",()=>{
-cards.forEach(card=>{
-const top = card.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
-card.classList.add("show");
-}
-});
-});
-
-function scrollToSection(){
-document.getElementById("projects").scrollIntoView({behavior:"smooth"});
-}
-
-</script>
+    <section class="tech-section">
+        <div class="container">
+            <h2 style="font-family: 'Oswald';">TECHNICAL ARSENAL</h2>
+            <p><strong>C# | Unity3D | OpenXR | Oculus SDK | AR Core | SteamVR</strong></p>
+            <p>Email: bvssatya55@gmail.com | Phone: +91 9603738816</p>
+        </div>
+    </section>
 
 </body>
 </html>
