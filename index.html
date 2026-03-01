@@ -1,276 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.V. Satyanarayana | Lead XR Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-orange: #ff4d00;
-            --bg-dark: #0a0a0a;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-main: #e0e0e0;
-            --army-green: #4b5320;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B.V. Satyanarayana | Lead XR Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-        }
+<style>
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.25);
+    --glass-hover: rgba(255, 255, 255, 0.18);
+    --bg-dark: #0a0a0a;
+    --text-main: #e0e0e0;
+}
 
-        /* Hero Section */
-        header {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500') center/cover;
-            border-bottom: 4px solid var(--light-green);
-        }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
 
-        h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+/* HERO */
+header {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+    url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500') center/cover;
+    border-bottom: 1px solid var(--glass-border);
+}
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--primary-orange);
-            font-weight: 600;
-            letter-spacing: 5px;
-            margin-bottom: 10px;
-        }
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
-        .hero-desc { max-width: 700px; font-size: 1.1rem; color: #bbb; margin-top: 15px; }
+.subtitle {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+.hero-desc {
+    max-width: 700px;
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-top: 15px;
+}
 
-        h2.section-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.5rem;
-            border-left: 6px solid var(--primary-orange);
-            padding-left: 20px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
+/* GLASS BUTTON */
+.glass-btn {
+    margin-top: 30px;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: white;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: 0.3s ease;
+}
 
-        /* Project Cards */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
+.glass-btn:hover {
+    background: var(--glass-hover);
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
+    transform: translateY(-3px);
+}
 
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 4px;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
 
-        .project-card:hover {
-            border-color: var(--primary-orange);
-            transform: translateY(-8px);
-            background: rgba(255, 77, 0, 0.03);
-        }
+h2.section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    border-left: 4px solid var(--glass-border);
+    padding-left: 20px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
 
-        .role-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--primary-orange);
-            color: white;
-            padding: 5px 15px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+/* PROJECT CARDS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
 
-        .project-card h3 { font-family: 'Oswald', sans-serif; color: white; font-size: 1.6rem; margin: 15px 0; }
-        .tag { color: var(--primary-orange); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        
-        ul { padding-left: 18px; color: #aaa; font-size: 0.95rem; }
-        li { margin-bottom: 8px; }
+.project-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 14px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: 0.3s ease;
+    position: relative;
+}
 
-        .video-trigger {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--primary-orange);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
+.project-card:hover {
+    background: var(--glass-hover);
+    box-shadow: 0 10px 40px rgba(255,255,255,0.15);
+    transform: translateY(-8px);
+}
 
-        /* Enterprise List */
-        .enterprise-section { background: #111; padding: 60px 0; }
-        .client-pill {
-            display: inline-block;
-            border: 1px solid #333;
-            padding: 8px 20px;
-            margin: 5px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            transition: 0.3s;
-        }
-        .client-pill:hover { border-color: var(--primary-orange); background: var(--primary-orange); color: white; }
+.project-card h3 {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 1.6rem;
+    margin: 15px 0;
+}
 
-        /* Modal */
-        .modal {
-            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); backdrop-filter: blur(8px);
-        }
-        .modal-content { position: relative; margin: 5% auto; width: 90%; max-width: 900px; border: 1px solid var(--primary-orange); }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .close { color: white; position: absolute; top: -40px; right: 0; font-size: 25px; cursor: pointer; }
+.tag {
+    color: #ccc;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid #222; font-size: 0.9rem; color: #666; }
+ul {
+    padding-left: 18px;
+    color: #aaa;
+    font-size: 0.95rem;
+}
 
-        @media (max-width: 768px) { .project-grid { grid-template-columns: 1fr; } }
-    </style>
+li { margin-bottom: 8px; }
+
+/* ROLE BADGE */
+.role-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    padding: 5px 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-left: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* VIDEO TRIGGER */
+.video-trigger {
+    margin-top: 15px;
+    color: white;
+    padding: 8px 16px;
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.video-trigger:hover {
+    background: var(--glass-hover);
+}
+
+/* ENTERPRISE */
+.enterprise-section {
+    background: #111;
+    padding: 60px 0;
+}
+
+.client-pill {
+    display: inline-block;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 8px 20px;
+    margin: 5px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.client-pill:hover {
+    background: var(--glass-hover);
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    width: 90%;
+    max-width: 900px;
+    border: 1px solid var(--glass-border);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+.close {
+    color: white;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* CONTACT BOX */
+.contact-box {
+    margin-top: 40px;
+    background: var(--glass-bg);
+    padding: 30px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #222;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .project-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
+
 <body>
 
-    <div id="videoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeVideo()">&times; CLOSE MISSION LOG</span>
-            <div class="video-container">
-                <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
+<header>
+    <p class="subtitle">LEAD XR DEVELOPER</p>
+    <h1>B.V. SATYANARAYANA</h1>
+    <p class="hero-desc">
+        Architecting mission-critical VR simulations for defense and enterprise-scale XR systems.
+    </p>
+    <a href="#projects" class="glass-btn">COMMENCE PORTFOLIO REVIEW</a>
+</header>
+
+<div class="container" id="projects">
+    <h2 class="section-title">Strategic Defense Projects</h2>
+
+    <div class="project-grid">
+        <div class="project-card">
+            <span class="tag">Oct 2024 — Present</span>
+            <h3>INSAS Rifle Simulation</h3>
+            <p>Advanced VR assembly/disassembly training system.</p>
+        </div>
+
+        <div class="project-card">
+            <div class="role-badge">PROJECT LEAD</div>
+            <span class="tag">Indian Army</span>
+            <h3>Truck Maintenance Simulator</h3>
+            <p>VR-based mechanical training simulator with real-time evaluation systems.</p>
+        </div>
+
+        <div class="project-card">
+            <div class="role-badge">PROJECT LEAD</div>
+            <span class="tag">Deployment</span>
+            <h3>Driving Simulator & Hardware</h3>
+            <p>Full motion platform integrated VR driving system for tactical training.</p>
         </div>
     </div>
+</div>
 
-    <header>
-        <p class="subtitle">LEAD XR DEVELOPER</p>
-        <h1>B.V. SATYANARAYANA</h1>
-        <p class="hero-desc">Architecting mission-critical VR simulations for the Indian Army and high-fidelity enterprise solutions for global brands.</p>
-        <a href="#projects" style="margin-top: 30px; background: var(--light-blue); color: white; padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 2px;">COMMENCE PORTFOLIO REVIEW</a>
-    </header>
+<div class="enterprise-section">
+    <div class="container">
+        <h2 class="section-title">Enterprise VR Portfolio</h2>
 
-    <div class="container" id="projects">
-        <h2 class="section-title">Strategic Defense Projects</h2>
-        
-        <div class="project-grid">
-            <div class="project-card">
-                <span class="tag">Oct 2024 — Present</span>
-                <h3>INSAS Rifle Simulation</h3>
-                <p>Advanced VR assembly/disassembly training for the Indian Army using controller-free interaction.</p>
-                <ul>
-                    <li>Designed full dismantling/assembling flow with realistic physics.</li>
-                    <li>Developed evaluation system for scoring sequence accuracy.</li>
-                    <li>Integrated voice-over instructions and intuitive UX.</li>
-                    <li>Directly trained Army instructors on battalion-level deployment.</li>
-                </ul>
-                <div class="video-trigger" onclick="openVideo('YOUTUBE_ID_1')">▶ WATCH SIMULATION DEMO</div>
-            </div>
-
-            <div class="project-card">
-                <div class="role-badge">PROJECT LEAD</div>
-                <span class="tag">Indian Army</span>
-                <h3>Truck Maintenance Simulator</h3>
-                <p>VR-based technical simulator for Meta Quest 3, managing a 5-member development team.</p>
-                <ul>
-                    <li>Simulated core systems: Fuel supply, air intake, and gearboxes.</li>
-                    <li>Built modules for radiator, engine oil, and air filter maintenance.</li>
-                    <li>Oversaw full system design and military data collection.</li>
-                    <li>Delivered and conducted hardware training for battalion instructors.</li>
-                </ul>
-                <div class="video-trigger" onclick="openVideo('YOUTUBE_ID_2')">▶ VIEW FLOW ANIMATIONS</div>
-            </div>
-
-            <div class="project-card">
-                <div class="role-badge">PROJECT LEAD</div>
-                <span class="tag">Indian Army Deployment</span>
-                <h3>Driving Simulator & Hardware</h3>
-                <p>Leading 7 members to build 3 integrated VR simulators (Gypsy & Truck) with full motion-platform sync.</p>
-                <ul>
-                    <li>Integrated motion platforms, pedals, and gearboxes with Unity.</li>
-                    <li>Developed multi-weather AI traffic for Desert, Off-road, and City terrains.</li>
-                    <li><b>Impact:</b> Trained 85+ soldiers at the Assam border on-site.</li>
-                </ul>
-                <div class="video-trigger" onclick="openVideo('YOUTUBE_ID_3')">▶ VIEW HARDWARE SYNC</div>
-            </div>
+        <div style="text-align:center; margin-top:30px;">
+            <div class="client-pill">TOYOTA</div>
+            <div class="client-pill">ASHOK LEYLAND</div>
+            <div class="client-pill">TVS</div>
+            <div class="client-pill">AMAZON</div>
+            <div class="client-pill">BHEL</div>
         </div>
     </div>
+</div>
 
-    <div class="enterprise-section">
-        <div class="container">
-            <h2 class="section-title">Enterprise VR Portfolio</h2>
-            <p style="margin-bottom: 30px; color: #888;">During tenure at Yeppar Smart Solutions (Dec 2022 - Sep 2024)</p>
-            
-            <div class="project-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <div class="project-card" style="padding: 20px;">
-                    <span class="tag">Logistics</span>
-                    <h3>Amazon VR Training</h3>
-                    <p>Technician-focused simulation for warehouse optimization on Oculus Quest 2.</p>
-                </div>
-                <div class="project-card" style="padding: 20px;">
-                    <span class="tag">Public Sector</span>
-                    <h3>Indian Railways</h3>
-                    <p>High-stakes VR safety and training simulation for railway operations.</p>
-                </div>
-                <div class="project-card" style="padding: 20px;">
-                    <span class="tag">Pharma & Energy</span>
-                    <h3>CIPLA & Alba Simulation</h3>
-                    <p>Multi-module technician training for sterile environments and power plants.</p>
-                </div>
-            </div>
+<div class="container" style="text-align:center;">
+    <h2 class="section-title" style="border:none;">Technical Arsenal</h2>
+    <p style="font-size:1.2rem;">C# | UNITY3D | META QUEST 3 | OPENXR | HARDWARE SYNC</p>
 
-            <div style="margin-top: 50px; text-align: center;">
-                <p style="color: var(--primary-orange); font-weight: bold; margin-bottom: 20px;">PHYSICAL DEMONSTRATIONS CONDUCTED AT:</p>
-                <div class="client-pill">TOYOTA</div>
-                <div class="client-pill">ASHOK LEYLAND</div>
-                <div class="client-pill">TVS</div>
-                <div class="client-pill">AMAZON</div>
-                <div class="client-pill">BHEL</div>
-            </div>
-        </div>
+    <div class="contact-box">
+        <p>Email: <b>bvssatya55@gmail.com</b></p>
+        <p>Hyderabad, India</p>
     </div>
+</div>
 
-    <div class="container" style="text-align: center;">
-        <h2 class="section-title" style="border: none; padding: 0; text-align: center;">Technical Arsenal</h2>
-        <p style="font-size: 1.3rem; letter-spacing: 2px;">C# | UNITY3D | META QUEST 3 | OPENXR | HARDWARE SYNC</p>
-        <div style="margin-top: 40px; background: var(--card-bg); padding: 30px; border: 1px dashed var(--primary-orange);">
-            <p>Email: <b>bvssatya55@gmail.com</b> | Phone: <b>+91 9603738816</b></p>
-            <p>Hyderabad, India | Available for Strategic XR Roles</p>
-        </div>
-    </div>
+<footer>
+© 2026 B.V. Satyanarayana | White Glass XR Portfolio
+</footer>
 
-    <footer>
-        &copy; 2024 B.V. Satyanarayana | Designed for High-Performance XR
-    </footer>
-
-    <script>
-        const modal = document.getElementById("videoModal");
-        const player = document.getElementById("videoPlayer");
-
-        function openVideo(id) {
-            modal.style.display = "block";
-            // Replace with your actual URLs. If using files: player.src = 'videos/' + id + '.mp4';
-            player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeVideo() {
-            modal.style.display = "none";
-            player.src = "";
-            document.body.style.overflow = "auto";
-        }
-
-        window.onclick = function(e) { if (e.target == modal) closeVideo(); }
-    </script>
 </body>
 </html>
